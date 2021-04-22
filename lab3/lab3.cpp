@@ -10,15 +10,15 @@ using namespace std;
 int cmax(int N, int M, int* P, int* X)
 {
     int T[100];
-    for (int m = 0; m <= M; m++)
+    for (int i = 0; i <= M; i++)
     {
-        T[m] = 0;
+        T[i] = 0;
     }
-    for (int n = 0; n < N; n++)
+    for (int i = 0; i < N; i++)
     {
-        for (int m = 1; m <= M; m++)
+        for (int j = 1; j <= M; j++)
         {
-            T[m] = max(T[m], T[m - 1]) + P[(m - 1) + X[n] * M];
+            T[j] = max(T[j], T[j - 1]) + P[(j - 1) + X[i] * M];
         }
     }
     return T[M];
@@ -29,21 +29,21 @@ int NEH(int N, int M, int* P, int* X) {
     for (int i = 0; i < N; i++) {
         W[i] = 0;
     }
-    for (int c = 0; c < N; c++)
+    for (int i = 0; i < N; i++)
     {
-        for (int d = 0; d < M; d++)
+        for (int j = 0; j < M; j++)
         {
-            W[c] += P[c * M + d];
+            W[i] += P[i * M + j];
         }
     }
-    for (int b = 0; b < N - 1; b++)
+    for (int i = 0; i < N - 1; i++)
     {
-        for (int a = 0; a < N - 1; a++)
+        for (int j = 0; j < N - 1; j++)
         {
-            if (W[a] < W[a + 1])
+            if (W[j] < W[j + 1])
             {
-                swap(W[a], W[a + 1]);
-                swap(X[a], X[a + 1]);
+                swap(W[j], W[j + 1]);
+                swap(X[j], X[j + 1]);
             }
         }
     }
@@ -87,7 +87,6 @@ int main()
         ss.str(string());
         ss << setw(3) << setfill('0') << i;
         numer = ss.str();
-        cout << numer << endl;
     
         while (dump != data + numer + ":")
             plik >> dump;
@@ -98,15 +97,14 @@ int main()
             plik >> P[j];
         for (int j = 0; j < N; j++)
             X[j] = j;
+
         auto start = chrono::high_resolution_clock::now();
         wynikNEH = NEH(N, M, P, X);
         auto end = chrono::high_resolution_clock::now();
         double czasns = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-        cout << "Data:" << numer << ": CMAX: " << wynikNEH << ", czas: " << czasns*1e-9 << "s\n";
+        cout << "data." << numer << ": CMAX: " << wynikNEH << ", czas: " << czasns*1e-9 << "s\n";
         czasTotal += czasns;
     }
     cout << "\nCały czas: " << czasTotal * 1e-9 << "s\n";
-
-    
 
 }
