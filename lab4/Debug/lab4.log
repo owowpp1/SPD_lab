@@ -1,0 +1,7 @@
+﻿  lab4.cpp
+C:\Users\Bidze\Desktop\Studia lol\6sem\SPD\SPD Lab\lab4\lab4.cpp(92,23): warning C4244: "inicjowanie": konwersja z "_Rep" do "double", możliwa utrata danych
+          with
+          [
+              _Rep=__int64
+          ]
+  lab4.vcxproj -> C:\Users\Bidze\Desktop\Studia lol\6sem\SPD\SPD Lab\lab4\Debug\lab4.exe
