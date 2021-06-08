@@ -84,7 +84,7 @@ int SchrageZP(int N, int* R, int* P, int* Q)
         }
         if (k == 0)
         {
-            t = 999999;
+            t = 99999;
             for (int j = 0; j < N; j++)
             {
                 if (F[j] == 0)
@@ -101,7 +101,7 @@ int SchrageZP(int N, int* R, int* P, int* Q)
             }
 
         }
-        int maxQ = -999999;
+        int maxQ = -99999;
         for (int j = 0; j < N; j++)
         {
             if ((F[j] == 1) && (maxQ < Q[j]))
